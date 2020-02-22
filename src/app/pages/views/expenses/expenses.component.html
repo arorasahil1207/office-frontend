@@ -1,0 +1,113 @@
+
+<div class=" jumbotron jumbotron-fluid">
+    
+      <h1 class="display-4">List of Expenses</h1>
+      <button type="button" class="btn btn-warning" 
+      (click)="returnToHome()"
+      >Home</button>
+    
+  </div>
+
+  <div class="card" style="width: 8%;float: right;margin-right: 7%;">
+    <div class="card-body">
+      <div class="row">
+        <strong>Total 
+          </strong>
+  
+          <strong style="margin-left: 10px;color: blue;">{{sum}} 
+
+        </strong>
+
+      </div>
+    </div>
+  </div>
+
+<div class="container" style="margin-top: 5%;">
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Money Spent On</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">Date of Expense</th>
+        <th scope="col">User Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor = 'let item of expenses;let i = index'>
+      <tr>
+        <th scope="row">{{i}}</th>
+        <td>{{item.spenton}}</td>
+        <td>{{item.expenseCategory}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.dateOfExpense}}</td>
+        <td>
+            <button type="button" class="btn btn-danger"
+            (click)="deleteRecord(item._id)"
+            >Delete</button>
+
+            <button type="button" style="margin-left: 2%;"class="btn btn-info"
+            data-target='#editModal' data-toggle='modal'
+            (click)="editRecord(item)"
+            >Edit</button>
+
+            
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+ 
+  </div>
+
+  <div class="container">
+      <div class="modal fade"  id="editModal" tabindex="-1">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button class="close" data-dismiss="modal"></button>
+                      <h4 class="modal-title">Edit The Expense Details</h4>
+                  </div>
+                  <div class="modal-body">
+                      <div class="form-group">
+                          <label for ="spenton">Spent On</label>
+                          <input class="form-control" placeholder="spent on"
+                          [(ngModel)]= "expenseDetails.spenton"
+                          type="text" />
+                      </div>
+
+                      <div class="form-group">
+                        <label for ="Price">Price</label>
+                        <input class="form-control" placeholder="Enter Price"
+                        [(ngModel)]= "expenseDetails.price"
+                        type="text" />
+                    </div>
+
+                    <div class="col-md-4">
+                        <label> Category  </label>
+                        <select id="categories" class="form-control"
+                        [(ngModel)]= "expenseDetails.category"
+                        (ngModelChange)="changeDetect($event)"
+                        >
+                           <!-- <option  value='select'>Select</option>  -->
+                            <option *ngFor='let item of categories'   
+                            [value]="item"
+                           >{{item}}</option>
+                          </select>
+                      
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                      <button class="btn btn-primary"
+                      (click)="udpateExpense()"
+                      >Update Expense</button>
+
+                      <button class="btn btn-primary"
+                      data-dismiss='modal'
+                      >Close</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>

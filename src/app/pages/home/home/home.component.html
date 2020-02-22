@@ -1,0 +1,55 @@
+
+<div class ="container"  style="margin-left: 18%; margin-top: 5%;"> 
+    <div class="row">
+    <div class="col-md-2">
+        <label> 
+            Spent On  <input class= "form-control" type="text"  [(ngModel)]="expenseDetails.spenton" />
+        </label>
+        
+    </div>
+
+    <div class="col-md-2">
+        <label> Category
+        <select id="categories" class="form-control"
+        [(ngModel)]= "expenseDetails.category"
+        
+        >
+           <!-- <option  value='select'>Select</option>  -->
+            <option *ngFor='let item of categories'   
+            [value]="item"
+           >{{item}}</option>
+          </select>
+        </label>
+    </div>
+
+    <div class="col-md-2">
+        <label> 
+            Price  <input class= "form-control" type="number"
+            
+            [(ngModel)]= "expenseDetails.price"
+            />
+        </label>
+        
+    </div>
+
+    <div class="col-md-3">
+        <br>
+        <button type="button" class="btn btn-primary"
+        (click)="Addingexpense()"
+        >Add Expense</button>
+    </div>
+</div>
+    
+
+</div>
+
+<div class="container">
+<div >
+    <br>
+    <button type="button" 
+    class="btn btn-success btn-lg btn-block"
+    (click)="viewExpense()"
+    >View Your Expense</button>
+</div>
+
+</div>

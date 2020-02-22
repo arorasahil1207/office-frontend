@@ -1,0 +1,41 @@
+import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../../sharedservices/auth.service';
+import {Router} from '@angular/router';
+import Swal from 'sweetalert2';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+user:any={}
+  constructor(private service:AuthService ,private router :Router) { }
+
+  ngOnInit() {
+  }
+loginResult
+
+login(){
+
+  this.service.userLogin(this.user)
+  .subscribe((response)=>{
+    this.loginResult = response
+    console.log(this.loginResult.status)
+
+    if(this.loginResult.status == 200){
+      localStorage.setItem('status',this.loginResult.status)
+      
+      this.router.navigate(['/home/expenses'])
+      
+      console.log('user is logged in successfully!!')
+      
+    }
+
+  },(error)=>{
+    console.log(error,'this is the error')
+    Swal.fire('Invalid username or password, please try again later with valid credentials')
+  })
+}
+
+}
