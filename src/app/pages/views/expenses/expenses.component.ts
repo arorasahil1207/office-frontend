@@ -92,4 +92,9 @@ changeDetect(val:any) {
  this.updatedCategory=val
  console.log(this.updatedCategory)
 }
+//navigate to new screen 
+search(){
+  this.router.navigate(['/search/filter'])
+  
+}
 }

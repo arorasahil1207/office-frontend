@@ -6,5 +6,6 @@ export const configUrls={
     addExpense:fixedURI + '/addexpense',
     getAllExpenseURL:fixedURI + '/get-expense-list',
     deleteExpenseURL:fixedURI + '/delete-record',
-    updateExpenseURL:fixedURI + '/update-expense'
+    updateExpenseURL:fixedURI + '/update-expense',
+    filterExpenseURL:fixedURI + '/find-expense'
 }
