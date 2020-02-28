@@ -65,7 +65,9 @@ categories
    .subscribe((response)=>{
     this.categories=response 
     this.categories=this.categories.response
+    console.log(this.categories)
     this.expenseDetails.category =recordData.expenseCategory
+   console.log(this.expenseDetails)
     console.log(this.categories)
    },(error)=>{
      console.log(error)
@@ -74,7 +76,7 @@ categories
   }
 //this function will update the expense 
 udpateExpense(){
-  this.expenseDetails.expenseCategory = this.updatedCategory
+  //this.expenseDetails.expenseCategory = this.updatedCategory
   console.log(this.expenseDetails,'final expense data');
   this.service.updateExpense(this.expenseDetails)
   .subscribe((response)=>{
