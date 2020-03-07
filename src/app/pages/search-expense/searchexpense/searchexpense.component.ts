@@ -82,4 +82,20 @@ expenseDetails:any={}
 goToHome(){
   this.router.navigate(['/home/expenses'])
 }
+sum=0
+searchByCat(item){
+  
+  console.log(item,' this is the item ')
+  this.service.findDataByCategories(item)
+  .subscribe((response)=>{
+    this.dateFilterResult=response
+    this.sum = this.dateFilterResult.sum[0].sum
+    console.log(this.sum,'this is sum')
+    this.dateFilterResult=this.dateFilterResult.response
+    
+  },(error)=>{
+    console.log(error)
+  })
+
+}
 }

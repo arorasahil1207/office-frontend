@@ -11,4 +11,9 @@ export class FilterexpenseService {
   findDates(body){
     return this.http.post(configUrls.filterExpenseURL ,body)
   }
+
+  findDataByCategories(cat){
+    return this.http.get(configUrls.filterByCatURL + '/' + cat)
+  }
+
 }
