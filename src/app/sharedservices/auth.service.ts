@@ -21,6 +21,13 @@ export class AuthService {
     
   }
 
+  userSignup(body){
+    return this.http.post(configUrls.signupURL,body).pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+
   handleError(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

@@ -28,7 +28,8 @@ export class ExpensesComponent implements OnInit {
   }
 expenses
   getAllExpense(){
-    this.service.getListOfExpense()
+    let emailUser = localStorage.getItem('userEmail')
+    this.service.getListOfExpense(emailUser)
     .subscribe((response)=>{
       this.expenses=response
       this.expenses=this.expenses.response

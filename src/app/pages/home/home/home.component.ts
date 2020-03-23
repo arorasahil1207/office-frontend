@@ -18,7 +18,7 @@ expenseDetails:any={}
 
   //adding expense in database
   Addingexpense(){
-    console.log(this.expenseDetails)
+    this.expenseDetails.email = localStorage.getItem('userEmail')
     
     this.service.addExpense(this.expenseDetails)
     .subscribe((response)=>{

@@ -21,11 +21,12 @@ login(){
   this.service.userLogin(this.user)
   .subscribe((response)=>{
     this.loginResult = response
+    console.log(this.loginResult ,'login details')
     console.log(this.loginResult.status)
 
     if(this.loginResult.status == 200){
       localStorage.setItem('status',this.loginResult.status)
-      
+      localStorage.setItem('userEmail',this.loginResult.email)
       this.router.navigate(['/home/expenses'])
       
       console.log('user is logged in successfully!!')
@@ -36,6 +37,10 @@ login(){
     console.log(error,'this is the error')
     Swal.fire('Invalid username or password, please try again later with valid credentials')
   })
+}
+
+Signup(){
+  this.router.navigate(['/signup'])
 }
 
 }

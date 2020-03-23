@@ -1,6 +1,4 @@
-
-
-<div class="container">
+<div class="container" style="width: 70%;margin-top: 10%;">
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
       <input type="email" class="form-control" 
@@ -17,14 +15,13 @@
       [(ngModel)]="user.password"
       >
     </div>
+
+    
    
     <button type="submit"
      class="btn btn-primary"
-     (click)="login()"
-     >Login</button>
+     (click)="signup()"
+     >Sign UP</button>
 
-     <button type="submit"
-     class="btn btn-success"
-     (click)="Signup()"
-     >Not a user ? Sign UP</button>
+    
 </div>

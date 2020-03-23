@@ -2,6 +2,7 @@
 const fixedURI='https://office-expense.herokuapp.com'
 export const configUrls={
     loginURL: fixedURI + '/login',
+    signupURL:fixedURI + '/createuser',
     getCategoiesURL : fixedURI + '/getcategories',
     addExpense:fixedURI + '/addexpense',
     getAllExpenseURL:fixedURI + '/get-expense-list',

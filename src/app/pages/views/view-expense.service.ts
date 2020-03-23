@@ -10,8 +10,8 @@ export class ViewExpenseService {
 
   constructor(private http:HttpClient) { }
 //this function will get all the data
-  getListOfExpense(){
-    return this.http.get(configUrls.getAllExpenseURL)
+  getListOfExpense(emailquery){
+    return this.http.get(configUrls.getAllExpenseURL +'/?email=' + emailquery)
     .pipe(
       catchError(this.handleError)
     )
