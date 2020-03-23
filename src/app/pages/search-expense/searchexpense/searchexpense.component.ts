@@ -71,6 +71,13 @@ search(){
     this.dateFilterResult=response
     this.dateFilterResult=this.dateFilterResult.response
     console.log(this.dateFilterResult)
+
+    this.dateFilterResult.reduce((a,b)=>{
+      this.sum = {price : a.price + b.price}
+      this.sum= JSON.stringify(this.sum)
+       return this.sum
+    });
+
     if(this.dateFilterResult.length ==0){
       Swal.fire('No result found, try with some other dates')
     }
@@ -82,7 +89,7 @@ expenseDetails:any={}
 goToHome(){
   this.router.navigate(['/home/expenses'])
 }
-sum=0
+sum:any=0
 searchByCat(item){
   
   console.log(item,' this is the item ')
