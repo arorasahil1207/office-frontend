@@ -15,8 +15,22 @@ export class ExpensesComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-   this.getAllExpense()
-  
+    Promise.all([this.getAllExpense(),this.getCurrentMonthExpense()]).then((response)=>{
+      console.log('Getting messages')
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }
+MonthExpenseDetails
+  getCurrentMonthExpense(){
+    let userEmail = localStorage.getItem('userEmail')
+    this.service.getCurrentMonthlyExpense(userEmail)
+    .subscribe((response)=>{
+      this.MonthExpenseDetails = response
+      this.MonthExpenseDetails = this.MonthExpenseDetails.result[0].sum
+      console.log(this.MonthExpenseDetails , 'monthly expense')
+
+    })
   }
   sum:any 
   totalOfExpense(){

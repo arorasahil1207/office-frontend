@@ -16,6 +16,13 @@ export class ViewExpenseService {
       catchError(this.handleError)
     )
   }
+
+  //this funciton will find monthly expense of the user
+
+  getCurrentMonthlyExpense(userEmail){
+    return this.http.get(configUrls.getCurrMonthURL + '/?email=' + userEmail)
+    .pipe(catchError(this.handleError))
+  }
   //this will handle the error
   handleError(error) {
     let errorMessage = '';

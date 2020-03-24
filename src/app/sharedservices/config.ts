@@ -9,6 +9,7 @@ export const configUrls={
     deleteExpenseURL:fixedURI + '/delete-record',
     updateExpenseURL:fixedURI + '/update-expense',
     filterExpenseURL:fixedURI + '/find-expense',
-    filterByCatURL:fixedURI + '/search-category'
+    filterByCatURL:fixedURI + '/search-category',
+    getCurrMonthURL:fixedURI + '/get-current-month-expense'
     //filterByCatURL:'http://localhost:3000/search-category'
 }
